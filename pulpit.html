@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chmura Arduino Dashboards</title>
+    <style>
+        html, body {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            overflow-x: auto; overflow-y: hidden; white-space: nowrap;
+            scroll-snap-type: x mandatory; scroll-behavior: smooth;
+            background: #000;
+        }
+        /* Każdy pulpit zajmuje dokładnie cały ekran tabletu */
+        .screen {
+            display: inline-block; width: 100vw; height: 100vh;
+            scroll-snap-align: start; vertical-align: top; margin: 0; padding: 0;
+        }
+        iframe {
+            width: 100%; height: 100%; border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- EKRAN 1: KOK UGNEN -->
+    <div class="screen">
+        <iframe id="pulpit1" src="https://app.arduino.cc/dashboards/a7246e28-f256-4445-9e64-905684e30680?page=fabe5551-c7ce-45a6-adfc-2ef38f2e0221"></iframe>
+    </div>
+
+    <!-- EKRAN 2: MINIKYL -->
+    <div class="screen">
+        <iframe id="pulpit2" src="https://app.arduino.cc/dashboards/62e5151f-e093-4cd0-9679-31ecbe844a1c?page=7b5c6d21-fb7a-4ed6-80e3-cf8e0a65e94b"></iframe>
+    </div>
+
+    <!-- EKRAN 3: JASSKAP -->
+    <div class="screen">
+        <iframe id="pulpit3" src="https://app.arduino.cc/dashboards/0e6e962c-db98-42e9-bb22-302005441a4d?page=375610b5-86af-47a9-bb34-71aeb76fa751"></iframe>
+    </div>
+
+    <!-- EKRAN 4: KAWIARNIA 2 -->
+    <div class="screen">
+        <iframe id="pulpit4" src="https://google.com"></iframe>
+    </div>
+
+    <script>
+        // Funkcja odświeżająca chmurę co 120 sekund w tle
+        function odswiezChmure() {
+            document.getElementById('pulpit1').src = document.getElementById('pulpit1').src;
+            document.getElementById('pulpit2').src = document.getElementById('pulpit2').src;
+            document.getElementById('pulpit3').src = document.getElementById('pulpit3').src;
+            document.getElementById('pulpit4').src = document.getElementById('pulpit4').src;
+        }
+        setInterval(odswiezChmure, 120000);
+    </script>
+
+</body>
+</html>
